@@ -6,8 +6,16 @@ import java.util.Date;
 
 public class MallUser {
     private Long userId;
+    private String goodsName;
+    public String getGoodsName() {
+		return goodsName;
+	}
 
-    private Long goodsId;
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+
+	private Long goodsId;
     
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date checktime;

@@ -58,14 +58,14 @@ public class IndexController {
 	public Result user(Long userId) {
 
 		// MallUser user = checkUserExistsService.checkUserExists(userId);
-		if (userId != null) {
+//		if (userId != null) {
 			return ResultGenerator.genSuccessResult(checkUserExistsService.checkUserExists(userId));
-		} else
-			{
-			Result result = new Result();
-			result.setMessage("该用户不存在");
-			return  result;
-			}
+//		} else
+//			{
+//			Result result = new Result();
+//			result.setMessage("该用户不存在");
+//			return  result;
+//			}
 	}
 
 }

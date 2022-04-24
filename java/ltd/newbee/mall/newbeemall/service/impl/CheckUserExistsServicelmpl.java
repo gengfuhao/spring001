@@ -32,6 +32,8 @@ public class CheckUserExistsServicelmpl implements CheckUserExistsService {
 		for(MallUser gc : malluser) {
 			
 			NewBeeMailUserVO user =new NewBeeMailUserVO();
+			user.setGoodsName(gc.getGoodsName());
+			user.setAddress(gc.getAddress());
 			user.setUserId(gc.getUserId());
 			user.setGoodsId(gc.getGoodsId());
 			user.setChecktime((Date) gc.getChecktime());

@@ -5,8 +5,8 @@
 		type="ltd.newbee.mall.newbeemall.entity.MallUser">
 		<id column="user_id" jdbcType="BIGINT" property="userId" />
 		<result column="goods_id" jdbcType="BIGINT" property="goodsId" />
-		<result column="check_time" jdbcType="VARCHAR"
-			property="checktime" />
+		<result column="goods_name" jdbcType="VARCHAR"
+			property="goodsName" />
 		<result column="password_md5" jdbcType="VARCHAR"
 			property="passwordMd5" />
 		<result column="introduce_sign" jdbcType="VARCHAR"
@@ -21,9 +21,11 @@
 	</resultMap>
 	<select id="checkUserExists" parameterType="long"
 		resultType="ltd.newbee.mall.newbeemall.entity.MallUser">
-		select user_id,goods_id,count(user_id) FROM new_table
-		where user_id = #{userId}
-		group by goods_id,user_id order by count(user_id) desc
-		limit 4
+		select info.* from rescent_check_goods join
+		tb_newbee_mall_goods_info as info
+		on info.goods_id=rescent_check_goods.goods_id 
+		where user_id=#{userId}
+		group by user_id,rescent_check_goods.goods_id order by count(check_date) desc
+		limit 6
 	</select>
 </mapper> 
